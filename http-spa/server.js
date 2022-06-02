@@ -1,27 +1,15 @@
 const http = require('http');
-const port = 5000;
+const PORT = 5001;
+const boards = require('./data/boards')
 
-const users = {};
-
-http.createServer((req, res) => {
-    const headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
-        'Access-Control-Max-Age': 259200, //30일 
-    };
-
-    if (req.method === 'OPTIONS') {
-        res.writeHead(204, headers);
-        res.end();
-        return;
+const server = http.createServer((req, res) => {
+    if (req.ulr === '/api/boards') {
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        res.end(JSON.stringify(products))
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/html' })
+        res.end(JSON.stringify({ messge: "missing routes.." }))
     }
+})
 
-    if (['GET', 'POST'].indexOf(req.method) > -1) {
-        res.writeHead(200, headers);
-        res.end('Hello World');
-        return;
-    }
-
-    res.writeHeade(405, headers);
-    res.end(`${req.method} is not allowed for request.`)
-}).listen(port);
+server.listen(PORT, () => console.log("Server running.."))

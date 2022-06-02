@@ -2,6 +2,10 @@ import Dashboard from "../views/Dashboard.js";
 import Board from "../views/Board.js";
 import User from "../views/User.js";
 
+/**
+ * 
+ * @param {*} url 
+ */
 const navigateTo = url => {
     history.pushState(null, null, url); //순서대로 인자로 보낼 데이터 객체, 바꿀 제목, 주소
     router();
@@ -42,9 +46,7 @@ const router = async () => {
 //이전, 다음페이지 이동
 window.addEventListener("popstate", router);
 
-
-
-document.addEventListener("DOMContentLoaded", () => { //DOM이 다 로딩되면 router function 실행 
+document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
