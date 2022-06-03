@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,10 @@
     "express": "^4.18.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "nodemon": "^2.0.16",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2"
   }
 }

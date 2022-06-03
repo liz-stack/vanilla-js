@@ -2,16 +2,19 @@ require('dotenv').config();
 
 const express = require("express");
 const path = require("path");
+
 const app = express();
 
-//whenever it has forward /static, serve this static directory as per usual
-app.use("/src", express.static(path.resolve(__dirname, "..", "src")));
-app.use(express.json());
+const PORT = process.env.PORT || 8081;
 
-app.get("*", (req, res) => {
+
+//whenever it has forward /static, serve this static directory as per usual
+app.use("/static", express.static(path.resolve(__dirname, "src", "static")));
+
+app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "src", "index.html"));
 })
 
-app.listen(process.env.PORT || 8081, () => console.log("Server running.."))
-
-module.exports = app;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

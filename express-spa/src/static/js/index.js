@@ -1,6 +1,6 @@
 import LoginView from "../views/LoginView.js";
 import BoardView from "../views/BoardView.js";
-import NotFoundView form "../views/NotFoundView.js"
+import NotFoundView from "../views/NotFoundView.js";
 //import RegisterView from "../views/RegisterView.js";
 
 
@@ -50,30 +50,27 @@ const router = async () => {
                 path: location.pathname,
                 view: NotFoundView
             },
-            result: [location.pathname]
+            result: origin + location.pathname
         }
     }
 
-    const view = new match.route.view(getParams(match))
+    const view = new match.route.view(getParams(mmatchedPathatch))
 
     document.querySelector("#app").innerHTML = await view.getHtml();
 
-    /* 
-        if (match.route.path === '/board/:id') {
-            await view.getBoardDetail();
-        }
-     */
+    view.attachEvent();
+
 };
 
-//이전, 다음페이지 이동
-window.addEventListener("popstate", router);
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.addEventListener("click", e => {
-        if (e.target.matches("[data-link]")) {
-            e.preventDefault();
-            navigateTo(e.target.href);
+window.addEventListener('popstate', router);
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (event) => {
+        if (event.target.matches('[data-link]')) {
+            event.preventDefault();
+            navigateTo(event.target.href);
         }
-    })
+    });
     router();
-})
+});
+
+export { navigateTo, router };
