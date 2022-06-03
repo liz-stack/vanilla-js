@@ -1,7 +1,7 @@
-import Dashboard from "../views/Dashboard.js";
-import Board from "../views/Board.js";
-import Login from "../views/login.js";
-//import Register from "../views/Register.js";
+import LoginView from "../views/LoginView.js";
+import BoardView from "../views/BoardView.js";
+import NotFoundView form "../views/NotFoundView.js"
+//import RegisterView from "../views/RegisterView.js";
 
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -24,13 +24,14 @@ const navigateTo = url => {
 }
 
 const router = async () => {
-    console.log(pathToRegex("/boards/:id"))
     const routes = [
-        { path: "/", view: Dashboard },
-        { path: "/boards", view: Board },
-        { path: "/boards/:id", view: Board },
-        //{ path: "/register", view: Register },
-        { path: "/login", view: Login }
+        { path: '/login', view: LoginView },
+        { path: '/', view: BoardView },
+        // { path: '/userInfo', view: UserInfoView },
+        // { path: '/register', view: RegisterView },
+        // { path: '/write', view: WriteView },
+        // { path: '/board/:id', view: BoardView },
+        // { path: '/write/:id/modify', view: ModifyView }
     ];
 
     //Test each route for potential match
@@ -41,11 +42,14 @@ const router = async () => {
         }
     });
 
-    let match = potentialMatch.find(potentialMatch => potentialMatch.result !== null)
+    let matchedPath = potentialMatch.find((path) => path.result != null)
 
-    if (!match) {
-        match = {
-            route: routes[0],
+    if (!matchedPath) {
+        matchedPath = {
+            route: {
+                path: location.pathname,
+                view: NotFoundView
+            },
             result: [location.pathname]
         }
     }
