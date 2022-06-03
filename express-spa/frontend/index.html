@@ -5,17 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/style.css">
+
     <title>게시판</title>
 </head>
 
 <body>
-    <nav>
-        <li><a href="/" class="nav__link" data-link>Dashboard</a></li>
-        <li><a href="/boards" class="nav__link" data-link>Board</a></li>
-        <li><a href="/users" class="nav__link" data-link>User</a></li>
-    </nav>
-    <div id="app"></div>
-    <script type="module" src="index.js"></script>
+    <div class="wrapper">
+        <nav class="navbar" role="navigation">
+            <ul>
+                <li><a href="/" class="nav__link" data-link>Dashboard</a></li>
+                <li><a href="/boards" class="nav__link" data-link>Board</a></li>
+                <li><a href="/register" class="nav__link" data-link>Register</a></li>
+                <li><a href="/login" class="nav__link" data-link>Login</a></li>
+            </ul>
+        </nav>
+        <div id="app"></div>
+    </div>
+    <script type="module" src="./static/js/index.js"></script>
 </body>
 
 </html>

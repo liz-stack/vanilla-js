@@ -1,6 +1,12 @@
 export default class {
-    constructor() {
-
+    constructor(params) {
+        this.params = params;
+        /*  
+          this.url = 'in root url here';
+          this.convertDate = date => {
+              return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours() + 1}:${date.getMinutes()} `
+          } */
+        console.log(params)
     }
 
     setTitle(title) {
@@ -11,5 +17,9 @@ export default class {
         return "";
     }
 
+
+    async executeViewScript() {
+
+    }
 }
 
