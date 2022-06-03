@@ -1,11 +1,10 @@
 const http = require('http');
 const PORT = 5001;
-const boards = require('./data/boards')
+const { getBoards } = require('./controller/boardController.js')
 
 const server = http.createServer((req, res) => {
-    if (req.ulr === '/api/boards') {
-        res.writeHead(200, { 'Content-Type': 'text/html' })
-        res.end(JSON.stringify(products))
+    if (req.url === '/api/boards') {
+        getBoards(req, res)
     } else {
         res.writeHead(404, { 'Content-Type': 'text/html' })
         res.end(JSON.stringify({ messge: "missing routes.." }))
