@@ -1,4 +1,4 @@
-import { navigateTo } from "../js/router.js";
+import { navigateTo } from "../index.js";
 
 const getBoardList = async (boardList) => {
     const boardListPath = `${location.origin}`;
