@@ -54,7 +54,7 @@ const router = async () => {
         }
     }
 
-    const view = new match.route.view(getParams(mmatchedPathatch))
+    const view = new matchedPath.route.view(getParams(matchedPath))
 
     document.querySelector("#app").innerHTML = await view.getHtml();
 

@@ -1,7 +1,6 @@
-'use strict';
 
 import AbstractView from "./AbstractView.js";
-import { onHomeBtnClick, onPreviousBtnClick } from '../controllers/NotFoundController.js';
+import { onHomeBtnClick, onPreviousBtnClick } from '../js/controller/NotFoundController.js';
 
 export default class extends AbstractView {
 
