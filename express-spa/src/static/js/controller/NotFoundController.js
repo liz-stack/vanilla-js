@@ -1,4 +1,4 @@
-import { navigateTo } from "../js/index.js";
+import { navigateTo } from "../index.js";
 
 function onHomeBtnClick(event) {
     event.preventDefault();

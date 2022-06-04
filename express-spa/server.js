@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 8081;
 
-const loginRouter = require('../server/routes/login.js');
+const loginRouter = require('./server/routes/login.js');
 
 
 //whenever it has forward /static, serve this static directory as per usual
