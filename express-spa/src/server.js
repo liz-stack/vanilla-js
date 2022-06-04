@@ -7,11 +7,11 @@ const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 8081;
 
-const loginRouter = require('./routes/login.js');
+const loginRouter = require('../server/routes/login.js');
 
 
 //whenever it has forward /static, serve this static directory as per usual
-app.use("/src", express.static(path.resolve(__dirname, "..", "src")));
+app.use("/static", express.static(path.resolve(__dirname, "src", "static")));
 app.use(express.json());
 app.use(cookieParser());
 
