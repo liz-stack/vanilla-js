@@ -18,7 +18,7 @@ export default class extends AbstractView {
                 </div>
                 <div class = "form-group">
                     <input required type="password" id="password" placeholder="Please Enter your Password">
-                    <div class="form__input-error-message"></div>
+                    <div class="form-input-error-message"></div>
                 </div>
                 <div>
                     <button class ="form-button" type="submit" id="login-btn">Log In</button>

@@ -5,7 +5,7 @@ function onRegisterBtnClick(event) {
     navigateTo(location.origin) + "/register";
 }
 
-function onLoginSubmit(event, id, pw) {
+function onLoginSubmit(event, id, password) {
     event.preventDefault();
 
     const navBar = document.querySelector('nav');
@@ -32,9 +32,9 @@ function onLoginSubmit(event, id, pw) {
                 console.log("로그인!");
             }
             else {
-                return res.json().then((msg) => {
-                    alert(message.msg);
-                    throw msg;
+                return res.json().then((message) => {
+                    alert(message.message);
+                    throw message;
                 })
             }
         })

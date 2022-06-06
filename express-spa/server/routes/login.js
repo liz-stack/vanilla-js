@@ -5,13 +5,13 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const db = require("../../db.js");
+const db = require("../db.js");
 
 router.post('/', (req, res) => {
     const id = req.body.id;
 
     db.query(`
-    SELECT * FROM USERS
+    SELECT * FROM USER
     WHERE id  = ${db.escape(id)}
     `,
         (dbErr, dbRes) => {
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
                 });
             }
             else {
-                bcrypt.compare(req.body.password, dbRes[0]['pw'], (bErr, bRes) => {
+                bcrypt.compare(req.body.password, dbRes[0]['password'], (bErr, bRes) => {
                     if (bErr) {
                         throw bErr;
                         return res.status(500).send({
@@ -36,9 +36,7 @@ router.post('/', (req, res) => {
                     }
                     if (bRes) {
                         const currentUser = {
-                            uid: dbRes[0]['uid'],
                             id: dbRes[0]['id'],
-                            username: dbRes[0]['username']
                         };
 
                         const accessToken = jwt.sign(currentUser, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "7d" });
