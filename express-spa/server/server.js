@@ -7,20 +7,21 @@ const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 8081;
 
-const loginRouter = require('./server/routes/login.js');
+const loginRouter = require('../server/routes/login.js');
+const boardRouter = require('../server/routes/board.js');
 
 
 //whenever it has forward /static, serve this static directory as per usual
-app.use("/static", express.static(path.resolve(__dirname, "src", "static")));
+app.use('/static', express.static(path.resolve(__dirname, '..', 'src', 'static')));
 app.use(express.json());
 app.use(cookieParser());
 
 app.use('/login', loginRouter);
-//app.use('/', boardRouter);
+app.use('/board', boardRouter);
 
 app.get("/*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "src", "index.html"));
-})
+    res.sendFile(path.resolve(__dirname, '..', 'src', 'index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
