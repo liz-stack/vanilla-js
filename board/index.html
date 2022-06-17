@@ -43,19 +43,20 @@
                                 <th>조회수</th>
                             </tr>
                         </thead>
-                        <tbody id="boardList">
-                            <tr>
-                                <th scope="row" colspan="5">Loading...</th>
-                            </tr>
+                        <tbody id="data">
+
                         </tbody>
                     </table>
                 </div>
                 <!-- 페이징 -->
-
+                <!-- TODO: li cs -->
                 <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#">&raquo;</a>
+                    <li class="page-item">
+                        <button id="prevBtn">&laquo;</button>
+                    </li>
+                    <li class="page-item">
+                        <button id="nextBtn">&raquo;</button>
+                    </li>
                 </div>
             </div>
         </div>

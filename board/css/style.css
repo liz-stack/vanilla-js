@@ -83,3 +83,11 @@ td {
     padding: 8px 16px;
     text-decoration: none;
 }
+
+.page-item {
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border: 0;
+    float: left;
+}
