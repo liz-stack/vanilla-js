@@ -23,12 +23,18 @@
 
     <article>
         <div class="inner">
-            <div class="board-container">
-                <div class="board">
+            <div class="board-inner">
+                <!-- 검색 컴포넌트-->
+                <div class="search-container">
+                    <input id="search-input" class="form-control" type="text">
+                </div>
+
+                <!-- 게시판 컴포넌트 -->
+                <div>총 게시물수</div>
+                <div class="board-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>번호</th>
                                 <th>카테고리</th>
                                 <th>제목</th>
                                 <th>글쓴이</th>
@@ -43,18 +49,22 @@
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
-                <div class="paging"></div>
-            </div>
+                <!-- 페이징 -->
 
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#">1</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </div>
         </div>
 
     </article>
 
     <footer></footer>
 
-    <script src="./js/api.js"></script>
+    <script src="./js/boardList.js"></script>
 </body>
 
 </html>

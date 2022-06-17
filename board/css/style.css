@@ -61,3 +61,25 @@ section {
     padding: 0.5rem 1rem;
     margin: 0 1rem;
 }
+
+table {
+    width: 100%;
+    border: 1px solid #444444;
+}
+
+th,
+td {
+    border: 1px solid #444444;
+}
+
+.pagination {
+    display: inline-block;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
