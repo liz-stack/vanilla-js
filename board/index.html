@@ -26,11 +26,14 @@
             <div class="board-inner">
                 <!-- 검색 컴포넌트-->
                 <div class="search-container">
-                    <input id="search-input" class="form-control" type="text">
+                    <form id="form">
+                        <input type="text" id="search" placeholder="Enter ..." />
+                        <button>Search</button>
+                    </form>
                 </div>
 
                 <!-- 게시판 컴포넌트 -->
-                <div>총 게시물수</div>
+                <div class="board-count">총 게시물수</div>
                 <div class="board-container">
                     <table>
                         <thead>
@@ -43,14 +46,14 @@
                                 <th>조회수</th>
                             </tr>
                         </thead>
-                        <tbody id="data">
+                        <tbody id="list" class="list">
 
                         </tbody>
                     </table>
                 </div>
                 <!-- 페이징 -->
                 <!-- TODO: li cs -->
-                <div class="pagination">
+                <div class="pageNumbers" id="pagination">
                     <li class="page-item">
                         <button id="prevBtn">&laquo;</button>
                     </li>
